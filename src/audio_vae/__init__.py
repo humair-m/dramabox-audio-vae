@@ -1,6 +1,6 @@
 """Audio VAE model components."""
 
-from .audio_vae import AudioDecoder, AudioEncoder, decode_audio, encode_audio
+from .model import AudioDecoder, AudioEncoder, decode_audio, encode_audio
 from .model_configurator import (
     AUDIO_VAE_DECODER_COMFY_KEYS_FILTER,
     AUDIO_VAE_ENCODER_COMFY_KEYS_FILTER,

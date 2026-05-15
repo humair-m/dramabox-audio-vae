@@ -2,7 +2,7 @@ import torch
 
 from .sd_ops import KeyValueOperationResult, SDOps
 from .attention import AttentionType
-from .audio_vae import AudioDecoder, AudioEncoder
+from .model import AudioDecoder, AudioEncoder
 from .causality_axis import CausalityAxis
 from .vocoder import MelSTFT, Vocoder, VocoderWithBWE
 from .normalization import NormType

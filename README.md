@@ -9,11 +9,12 @@ It acts as a fully independent module to encode audio into latent representation
 You need Python 3.10+ and standard PyTorch dependencies.
 
 ```bash
-# Install PyTorch (refer to pytorch.org for instructions based on your hardware)
-pip install torch torchaudio
+# Clone the repository
+git clone https://github.com/humair-m/dramabox-audio-vae.git
+cd dramabox-audio-vae
 
-# Install additional dependencies
-pip install einops safetensors huggingface_hub
+# Install as a library
+pip install -e .
 ```
 
 ## Usage

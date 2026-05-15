@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dramabox-audio-vae"
+version = "0.1.0"
+description = "Standalone Audio VAE and Vocoder from the DramaBox project."
+authors = [
+    { name = "Humair", email = "humair-m@github.com" },
+]
+dependencies = [
+    "torch>=2.0.0",
+    "torchaudio>=2.0.0",
+    "einops",
+    "safetensors",
+    "huggingface_hub"
+]
+readme = "README.md"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["src"]
