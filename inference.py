@@ -33,15 +33,15 @@ def build_dramabox_vocoder() -> VocoderWithBWE:
         use_bias_at_final=True,
     )
     
-    # 24kHz BWE generator (5 upsample layers)
-    bwe_24k = Vocoder(
+    # 48kHz BWE generator (5 upsample layers)
+    bwe_48k = Vocoder(
         resblock="AMP1",
         upsample_rates=[6, 5, 2, 2, 2],
         upsample_kernel_sizes=[12, 11, 4, 4, 4],
         resblock_kernel_sizes=[3, 7, 11],
         resblock_dilation_sizes=[[1, 3, 5], [1, 3, 5], [1, 3, 5]],
         upsample_initial_channel=512,
-        output_sampling_rate=24000,
+        output_sampling_rate=48000,
         activation="snakebeta",
         use_tanh_at_final=True,
         apply_final_activation=False, # BWE adds residual, so no final activation
@@ -50,18 +50,18 @@ def build_dramabox_vocoder() -> VocoderWithBWE:
     
     mel_stft = MelSTFT(
         filter_length=512,
-        hop_length=160,
+        hop_length=80,
         win_length=512,
         n_mel_channels=64,
     )
     
     return VocoderWithBWE(
         vocoder=vocoder_16k,
-        bwe_generator=bwe_24k,
+        bwe_generator=bwe_48k,
         mel_stft=mel_stft,
         input_sampling_rate=16000,
-        output_sampling_rate=24000,
-        hop_length=160,
+        output_sampling_rate=48000,
+        hop_length=80,
     )
 
 def load_dramabox_weights(safetensors_path: str, encoder, decoder, vocoder):
